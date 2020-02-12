@@ -1975,7 +1975,9 @@
 				else
 				{
 					editorUi.importFile(data, mime, x, y, 0, 0, filename, function(cells)
-					{
+					{	
+						 Packages.XMLtoJava.testMapper();
+						 filename = "sub2.xml";
 						editorUi.spinner.stop();
 						graph.setSelectionCells(cells);
 						graph.scrollCellToVisible(graph.getSelectionCell());
@@ -2007,7 +2009,7 @@
 				{
 					 //var xml=new XMLtoJava();
 					 Packages.XMLtoJava.testMapper();
-					 filename = "sub2.xml"
+					 filename = "sub2.xml";
 				}
 				return mime;
 			});
