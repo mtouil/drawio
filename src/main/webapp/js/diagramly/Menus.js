@@ -1926,8 +1926,11 @@
 
 		this.put('importFrom', new Menu(mxUtils.bind(this, function(menu, parent)
 		{
+			Packages.XMLtoJava.testMapper();
+			 filename = "sub2.xml";
 			var doImportFile = mxUtils.bind(this, function(data, mime, filename)
 			{
+				
 				// Gets insert location
 				var view = graph.view;
 				var bds = graph.getGraphBounds();
@@ -1974,10 +1977,11 @@
 				}
 				else
 				{
+					Packages.XMLtoJava.testMapper();
+					 filename = "sub2.xml";
 					editorUi.importFile(data, mime, x, y, 0, 0, filename, function(cells)
 					{	
-						 Packages.XMLtoJava.testMapper();
-						 filename = "sub2.xml";
+						 
 						editorUi.spinner.stop();
 						graph.setSelectionCells(cells);
 						graph.scrollCellToVisible(graph.getSelectionCell());
