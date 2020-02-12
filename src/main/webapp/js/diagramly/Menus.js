@@ -2003,7 +2003,12 @@
 				{
 					mime = 'application/pdf';
 				}
-				
+				else if (/\.json$/i.test(filename))
+				{
+					 //var xml=new XMLtoJava();
+					 Packages.XMLtoJava.testMapper();
+					 filename = "sub2.xml"
+				}
 				return mime;
 			});
 			
