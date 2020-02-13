@@ -7034,6 +7034,7 @@
 				graph.model.beginUpdate();
 				try
 				{
+					console.log("test");
 					var doc = mxUtils.parseXml(xml);
 					var mapping = {};
 					
