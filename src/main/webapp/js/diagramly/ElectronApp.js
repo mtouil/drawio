@@ -259,7 +259,14 @@ mxStencilRegistry.allowEval = false;
 											editorUi.spinner.stop();
 											graph.setSelectionCells(editorUi.importXml(xml));
 										});
-									}
+									}else if (/(\.json)($|\?)/i.test(path))
+										{
+										console.log("test");
+										 Packages.XMLtoJava.testMapper();
+										 filename = "sub2.xml";
+										 editorUi.spinner.stop();
+											graph.setSelectionCells(editorUi.importXml("sub2.xml"));
+										}
 									else if (!editorUi.isOffline() && new XMLHttpRequest().upload && editorUi.isRemoteFileFormat(data, path))
 									{
 										// Asynchronous parsing via server
