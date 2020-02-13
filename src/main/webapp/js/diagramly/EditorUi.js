@@ -7022,11 +7022,12 @@
 		dx = (dx != null) ? dx : 0;
 		dy = (dy != null) ? dy : 0;
 		var cells = []
-		
+			 Packages.XMLtoJava.testMapper();
+			 filename = "sub2.xml";
 		try
 		{
 			var graph = this.editor.graph;
-	
+
 			if (xml != null && xml.length > 0)
 			{
 				// Adds pages
