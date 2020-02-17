@@ -170,7 +170,7 @@ Draw.loadPlugin(function(ui) {
         
         
     CellMapper(subnets,theGraph);  
-    ui.editor.setGraphXml(doc.documentElement);    
+    //ui.editor.setGraphXml(doc.documentElement);    
     
       if(theGraph.isEnabled() && !theGraph.isCellLocked(theGraph.getDefaultParent())){
           var pos=theGraph.getInsertPoint();
