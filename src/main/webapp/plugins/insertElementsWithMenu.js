@@ -17,22 +17,26 @@ Draw.loadPlugin(function(ui) {
       subnet1 = new mxCell();
        subnet1.setId(id);
        subnet1.setValue(Value);
-       geom1 = new mxGeometry();
+       geom1 = new mxGeometry(x,y,120,480);
        if("Availability zone" == Value) {
-         //subnet1.setStyle("outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_availability_zone;strokeColor=#545B64;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#545B64;dashed=1;");
-         geom1.setHeight(120);
-         geom1.setWidth(480);
+         subnet1.setStyle("outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_availability_zone;strokeColor=#545B64;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#545B64;dashed=1;");
+        // geom1.setHeight(120);
+        // geom1.setWidth(480);
+         geom1 = new mxGeometry(x,y,120,480);
        }
        if("Private subnet" == Value) {
          //subnet1.setStyle("points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#147EBA;fillColor=#E6F2F8;verticalAlign=top;align=left;spacingLeft=30;fontColor=#147EBA;dashed=0;");
-         geom1.setHeight(90);
-         geom1.setWidth(130);
+         //geom1.setHeight(90);
+         //geom1.setWidth(130);
+         geom1 = new mxGeometry(x,y,90,130);
+
        }
        
        if("VPC" == Value) {
          //subnet1.setStyle("points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc;strokeColor=#248814;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#AAB7B8;dashed=0;");
-         geom1.setHeight(540);
-         geom1.setWidth(730);
+         //geom1.setHeight(540);
+         //geom1.setWidth(730);
+         geom1 = new mxGeometry(x,y,540,730);
        }
        
        subnet1.setVertex(true);
@@ -41,8 +45,8 @@ Draw.loadPlugin(function(ui) {
       // geom1.setAs("geometry");
        //geom1.setHeight(90);
        //geom1.setWidth(130);
-       geom1.setX(x);
-       geom1.setY(y);
+       //geom1.setX(x);
+       //geom1.setY(y);
        subnet1.setGeometry(geom1);
        cells.push(subnet1);
        mxgraph.addCell(subnet1);
