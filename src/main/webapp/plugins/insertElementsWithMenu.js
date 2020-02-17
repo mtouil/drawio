@@ -162,11 +162,11 @@ Draw.loadPlugin(function(ui) {
        console.log(jsonDoc["Subnets"][0]["VpcId"])
         let subnets = jsonDoc["Subnets"];
 
-        for (let index = 0; index < subnets.length; index++) {
-          let subnet = subnets[0];
-          //jsonDoc["Subnets"][index]["VpcId"];
-          console.log(jsonDoc["Subnets"][index]["VpcId"]);
-        } 
+        // for (let index = 0; index < subnets.length; index++) {
+        //   let subnet = subnets[0];
+        //   //jsonDoc["Subnets"][index]["VpcId"];
+        //   console.log(jsonDoc["Subnets"][index]["VpcId"]);
+        // } 
         
         
         CellMapper(subnets,ui.editor.graph);
