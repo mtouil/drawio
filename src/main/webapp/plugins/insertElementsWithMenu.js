@@ -163,8 +163,8 @@ Draw.loadPlugin(function(ui) {
         let subnets = jsonDoc["Subnets"];
 
         for (let index = 0; index < subnets.length; index++) {
-          const subnet = subnets[0];
-          const vpcId = jsonDoc["Subnets"][index]["VpcID"];
+          var subnet = subnets[0];
+          var vpcId = jsonDoc["Subnets"][index]["VpcID"];
           console.log(vpcId);
         } 
         
