@@ -1,5 +1,5 @@
 /**
-* A draw.io plugin for inserting a custom text (or ellipse) element,
+* A draw.io plugin for inserting a  text (or ellipse) element,
 * either by keyboard Ctrl+Shift+T (or Ctrl+Shift+Q) or by menu
 */
 Draw.loadPlugin(function(ui) {
@@ -156,11 +156,11 @@ Draw.loadPlugin(function(ui) {
         xmlhttp.send();
         var obj = JSON.parse(xmlhttp.responseText);
         let jsonDoc = JSON.parse(xmlhttp.responseText);
-        for (const property in obj) {
+        for (const property in jsonDoc) {
           console.log(`${property}: ${obj[property]}`);
         }
-       console.log(obj["Subnets"][0]["VpcId"])
-        let subnets = obj["Subnets"];
+       console.log(jsonDoc["Subnets"][0]["VpcId"])
+        let subnets = jsonDoc["Subnets"];
 
         for (let index = 0; index < subnets.length; index++) {
           const subnet = subnets[index];
@@ -169,7 +169,7 @@ Draw.loadPlugin(function(ui) {
         } 
         
         
-    CellMapper(subnets,ui.editor.graph);  
+        CellMapper(subnets,ui.editor.graph);
     //ui.editor.setGraphXml(doc.documentElement);    
     
       if(theGraph.isEnabled() && !theGraph.isCellLocked(theGraph.getDefaultParent())){
