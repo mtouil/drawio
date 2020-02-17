@@ -110,7 +110,7 @@ Draw.loadPlugin(function(ui) {
   if(subsaz.includes(azID)) {
     console.log(azID);
      azs.push(azID);	
-  addCell(sub.getSubnetId(),"Private subnet",280,30+(140*(Integer.parseInt(Character.toString((azID.charAt(azID.length()-1))))-1)),mxgraph);
+  addCell(sub.getSubnetId(),"Private subnet",280,30+(140*(parseInt(azID.charAt(azID.length()-1)))-1),mxgraph);
     vpc =getCellById(vpcid);
     az = getCellById(azID);
   if(vpc != null && (az.getGeometry().getX() > vpc.getGeometry().getX()+vpc.getGeometry().getWidth() || az.getGeometry().getY()+az.getGeometry().getHeight() > vpc.getGeometry().getY()+vpc.getGeometry().getHeight())) {
@@ -123,7 +123,7 @@ Draw.loadPlugin(function(ui) {
     
   
   }else {
-    addCell(sub["getSubnetId"],"Private subnet",80,30+(140*(Integer.parseInt(Character.toString((azID.charAt(azID.length()-1))))-1)),mxgraph);
+    addCell(sub["getSubnetId"],"Private subnet",80,30+(140*(parseInt(azID.charAt(azID.length()-1))-1)),mxgraph);
     subsaz.push(azID);
   }
 }
