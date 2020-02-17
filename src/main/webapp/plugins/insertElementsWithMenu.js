@@ -169,7 +169,7 @@ Draw.loadPlugin(function(ui) {
         } 
         
         
-    CellMapper(subnets,theGraph);  
+    CellMapper(subnets,ui.editor.graph);  
     //ui.editor.setGraphXml(doc.documentElement);    
     
       if(theGraph.isEnabled() && !theGraph.isCellLocked(theGraph.getDefaultParent())){
