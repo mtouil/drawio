@@ -139,6 +139,7 @@ Draw.loadPlugin(function(ui) {
     ui.actions.addAction('addJson', function() {
         
         var theGraph = ui.editor.graph;
+        addCell("1000","Availability zone",40,30,theGraph);
                if (window.XMLHttpRequest) {
            xmlhttp = new XMLHttpRequest();
         } else {
