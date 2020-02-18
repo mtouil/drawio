@@ -72,6 +72,15 @@ Draw.loadPlugin(function(ui) {
     return null;
 }
  //function CellMapper(subs,mxgraph) {
+  if (window.XMLHttpRequest) {
+    xmlhttp = new XMLHttpRequest();
+ } else {
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+ }
+  xmlhttp.open("GET", "subnet.json", false);
+  xmlhttp.send();
+  var obj = JSON.parse(xmlhttp.responseText);
+  let jsonDoc = JSON.parse(xmlhttp.responseText);
    let i =0;
    let azid  = "";
    let vpcid = "";
