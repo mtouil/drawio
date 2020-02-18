@@ -71,7 +71,7 @@ Draw.loadPlugin(function(ui) {
   //return new mxCell();
     return null;
 }
- function CellMapper(subs,mxgraph) {
+ //function CellMapper(subs,mxgraph) {
    let i =0;
    let azid  = "";
    let vpcid = "";
@@ -132,7 +132,7 @@ Draw.loadPlugin(function(ui) {
   }
 }
  }
-}
+//}
 
     // Adds resources for actions
     mxResources.parse('myInsertText=Insert text element');
@@ -172,7 +172,66 @@ Draw.loadPlugin(function(ui) {
         //   //jsonDoc["Subnets"][index]["VpcId"];
         //   console.log(jsonDoc["Subnets"][index]["VpcId"]);
         // } 
+        let i =0;
+        let azid  = "";
+        let vpcid = "";
+        let a = 0;
+        let s = 0;
         
+         azs = [];
+         vpcs = [];
+         subsaz = [];
+       for(sub in subs) {
+         vpcId = sub["VpcId"];
+         
+         if(vpcId!=null && !vpcs.includes(vpcId)) {
+           
+           addCell(vpcId,"VPC",10,20,mxgraph);
+           vpcid=vpcId;
+           console.log(vpcid);
+           vpcs.push(vpcId);
+         }
+       
+       azID = sub["getAvailabilityZoneId"];
+       
+       if(azID!=null && !azs.includes(azID)) {
+         addCell(azID,"Availability zone",40,30+a,mxgraph);
+         azid=azID;
+         console.log(azID);
+          azs.push(azID);
+         vpc =getCellById(vpcid);
+         az = getCellById(azID);
+         if(vpc != null && az.getGeometry().getX() > vpc.getGeometry().getX()+vpc.getGeometry().getWidth() || az.getGeometry().getY()+az.getGeometry().getHeight() > vpc.getGeometry().getY()+vpc.getGeometry().getHeight()) {
+           parent=mxgraph.getModel().getParent(vpc);
+           geom = vpc.getGeometry();
+           geom.setHeight(az.getGeometry().getY()+az.getGeometry().getHeight());
+           mxgraph.getModel().setGeometry(vpc,geom);
+           console.log(az.getGeometry().getY()+az.getGeometry().getHeight());
+           console.log(vpc.getGeometry().getY()+vpc.getGeometry().getHeight());
+         }
+         a=a+140;
+       }
+       if(subsaz.includes(azID)) {
+         console.log(azID);
+          azs.push(azID);	
+       addCell(sub.getSubnetId(),"Private subnet",280,30+(140*(parseInt(azID.charAt(azID.length()-1)))-1),mxgraph);
+         vpc =getCellById(vpcid);
+         az = getCellById(azID);
+       if(vpc != null && (az.getGeometry().getX() > vpc.getGeometry().getX()+vpc.getGeometry().getWidth() || az.getGeometry().getY()+az.getGeometry().getHeight() > vpc.getGeometry().getY()+vpc.getGeometry().getHeight())) {
+         parent= mxgraph.getModel().getParent(vpc);
+         geom = vpc.getGeometry();
+         geom.setHeight(az.getGeometry().getY()+az.getGeometry().getHeight());
+         mxgraph.getModel().setGeometry(vpc,geom);
+         console.log(az.getGeometry().getY()+az.getGeometry().getHeight());
+         console.log(vpc.getGeometry().getY()+vpc.getGeometry().getHeight());
+         
+       
+       }else {
+         addCell(sub["getSubnetId"],"Private subnet",80,30+(140*(parseInt(azID.charAt(azID.length()-1))-1)),mxgraph);
+         subsaz.push(azID);
+       }
+     }
+      }
         
         CellMapper(jsonDoc["Subnets"],ui.editor.graph);
     //ui.editor.setGraphXml(doc.documentElement);    
