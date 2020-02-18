@@ -81,6 +81,7 @@ Draw.loadPlugin(function(ui) {
     azs = [];
     vpcs = [];
     subsaz = [];
+    let subs=jsonDoc["Subnets"];
   for(sub in subs) {
     vpcId = sub["VpcId"];
     
@@ -233,7 +234,7 @@ Draw.loadPlugin(function(ui) {
      }
       }
         
-        CellMapper(jsonDoc["Subnets"],ui.editor.graph);
+       // CellMapper(jsonDoc["Subnets"],ui.editor.graph);
     //ui.editor.setGraphXml(doc.documentElement);    
     
       if(theGraph.isEnabled() && !theGraph.isCellLocked(theGraph.getDefaultParent())){
