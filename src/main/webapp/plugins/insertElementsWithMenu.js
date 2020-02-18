@@ -78,9 +78,9 @@ Draw.loadPlugin(function(ui) {
    let a = 0;
    let s = 0;
    
-    azs = [];
-    vpcs = [];
-    subsaz = [];
+   let azs = [];
+    let vpcs = [];
+    let subsaz = [];
     let subs=jsonDoc["Subnets"];
   for(sub in subs) {
     vpcId = sub["VpcId"];
